@@ -12,7 +12,12 @@ At the start of a project or even in an ongoing project, sometimes it is require
 1. Redis
 2. Aerospike (In progress)
 
-## Usage example
+## Installation
+```
+npm install --save cache_feeder
+```
+
+## Code example
 ```
 //  Requires 
 const feeder = require('cache_feeder');
