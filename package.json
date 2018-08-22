@@ -8,7 +8,9 @@
   },
   "author": "Anuj Gupta",
   "license": "ISC",
-  "engines" : { "node" : ">=7.6.0" },
+  "engines": {
+    "node": ">=7.6.0"
+  },
   "dependencies": {
     "csv-parser": "^1.12.1",
     "redis": "^2.8.0"
@@ -21,5 +23,16 @@
     "eslint-plugin-import": "^2.8.0",
     "prettier-eslint": "^8.8.1"
   },
-  "keywords": ["redis", "feeder", "cache", "stream", "csv", "parse", "batch", "insert", "reader", "bulk"]
+  "keywords": [
+    "redis",
+    "feeder",
+    "cache",
+    "stream",
+    "csv",
+    "parse",
+    "batch",
+    "insert",
+    "reader",
+    "bulk"
+  ]
 }
