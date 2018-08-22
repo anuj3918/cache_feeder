@@ -1,13 +1,14 @@
 {
-  "name": "offers",
+  "name": "cache_feeder",
   "version": "1.0.0",
-  "description": "",
+  "description": "This script helps to efficiently set a huge number (> 1 million) of key-value pairs from CSV file to cache (Redis)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Anuj Gupta",
   "license": "ISC",
+  "engines" : { "node" : ">=7.6.0" },
   "dependencies": {
     "csv-parser": "^1.12.1",
     "redis": "^2.8.0"
