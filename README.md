@@ -1,8 +1,8 @@
 # cache_feeder
-This node application reads key-value pairs from a CSV file and inserts it into Redis using streams.
+This node package reads key-value pairs from a CSV file and inserts it into Redis using streams.
 
 ## Application
-Use this application if you want to set key-value pairs from a CSV file which contains huge number of rows (N_rows > 100,000).
+Use this package if you want to set key-value pairs from a CSV file which contains huge number of rows (N_rows > 100,000).
 The script makes use of streams and a csv parser to read the file and make requests to cache in batches to reduce round trip time.
 
 ## Supported cache
