@@ -20,5 +20,6 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "prettier-eslint": "^8.8.1"
-  }
+  },
+  "keywords": ["redis", "feeder", "cache", "stream", "csv", "parse", "batch", "insert", "reader", "bulk"]
 }
