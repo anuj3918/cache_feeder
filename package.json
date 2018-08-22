@@ -1,6 +1,6 @@
 {
   "name": "cache_feeder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This script helps to efficiently set a huge number (> 1 million) of key-value pairs from CSV file to cache (Redis)",
   "main": "index.js",
   "scripts": {
