@@ -1,20 +1,24 @@
 const settings = require('../config').set({});
-
 const redis = require('redis');
+const context = require('../lib/context');
+
 let client,
+	connOptions = {},
 	commands = [];
 
-const connect = (options, context) => {
+const connect = () => {
 	return new Promise((resolve, reject) => {
+		const ctx = context.get();
+
 		let connected = null;
-		client = redis.createClient(options);
+		client = redis.createClient(connOptions);
 		client.on('ready', () => {
 			if (connected === null) {
 				connected = true;
-				context.print('Redis connected');
+				ctx.print('Redis connected');
 				resolve(client);
 			} else {
-				context.print('Redis reconnected');
+				ctx.print('Redis reconnected');
 				connected = true;
 			}
 		});
@@ -24,22 +28,24 @@ const connect = (options, context) => {
 				connected = false;
 				reject('Error: ' + JSON.stringify(err));
 			} else {
-				context.print('\nRedis connection ended');
+				ctx.print('\nRedis connection ended');
 				connected = false;
 			}
 		});
 	});
 };
 
-const buffer = (key, value, context) => {
+const buffer = (key, value) => {
 	return new Promise((resolve, reject) => {
+		const ctx = context.get();
 		commands.push(['set', key, value]);
 		resolve(commands);
 	});
 };
-const set = context => {
+const set = () => {
 	return new Promise((resolve, reject) => {
-		context.print('Executing commands');
+		const ctx = context.get();
+		ctx.print('Executing commands');
 		client.batch(commands).exec(function(err, replies) {
 			commands = [];
 			resolve(replies);
@@ -47,8 +53,25 @@ const set = context => {
 	});
 };
 
+const size = cb => {
+	client
+		.multi()
+		.dbsize()
+		.exec((err, replies) => {
+			cb(replies[0]);
+		});
+};
+
+const flush = () => {
+	return client.flushdb();
+};
+
 const close = () => {
 	client.quit();
 };
 
-module.exports = { connect, buffer, set, close };
+const setConfig = config => {
+	connOptions = config;
+};
+
+module.exports = { connect, buffer, set, size, close, setConfig, flush };

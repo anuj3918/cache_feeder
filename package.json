@@ -4,7 +4,7 @@
   "description": "This script helps to efficiently set a huge number (> 1 million) of key-value pairs from CSV file to cache (Redis)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec --exit test/test.js"
   },
   "author": "Anuj Gupta",
   "license": "ISC",
@@ -17,10 +17,12 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "chai": "^4.1.2",
     "class-validator": "^0.8.1",
     "eslint": "^4.18.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "mocha": "^5.2.0",
     "prettier-eslint": "^8.8.1"
   },
   "keywords": [
