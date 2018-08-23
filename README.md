@@ -18,7 +18,7 @@ npm install --save cache_feeder
 ```
 
 ## Github repository
-[a link](https://github.com/anuj3918/cache_feeder.git)
+https://github.com/anuj3918/cache_feeder.git
 
 ## Code example
 ```
