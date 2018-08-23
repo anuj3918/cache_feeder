@@ -80,7 +80,6 @@ gupta,anuj.gupta@bookmyshow.com
 4. Retry for only the failures keys encountered previously.
 5. Load testing metrics to be added in Readme.md
 6. Pausing and resuming stream while reconnecting to cache.
-7. Basic test cases using Chai/mocha/jest.
 
 
 ## Contributions
