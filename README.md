@@ -22,9 +22,6 @@ https://github.com/anuj3918/cache_feeder.git
 
 ## Code example
 ```
-//  Requires 
-const feeder = require('cache_feeder');
-
 //  Setup options for library and cache
 const options = {
 	cacheConfig: {
@@ -41,18 +38,18 @@ const options = {
 	}
 };
 
-//	Requires cache_feeder and initialise it, cf here is a Promise object
+//  Requires cache_feeder and initialise it, cf here is a Promise object
 const cf = require('./index')(options);
 
 //  Starts setting key value pairs to cache, can use async-await here as well
-cf('./csv/MOCK_DATA.csv')
+cf('./MOCK_DATA.csv')
 	.then(result => {
 		console.log(result);
 	});
 ```
 
 ## Details of 'options' to be passed
-Below are the default values of options
+Below are the default values of options with details
 ```
 const options = {
 	cacheConfig: {
