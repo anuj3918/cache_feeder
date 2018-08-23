@@ -24,7 +24,7 @@ const connect = (options, context) => {
 				connected = false;
 				reject('Error: ' + JSON.stringify(err));
 			} else {
-				context.print('Redis connection lost, ' + JSON.stringify(err));
+				context.print('\nRedis connection ended');
 				connected = false;
 			}
 		});
@@ -47,4 +47,8 @@ const set = context => {
 	});
 };
 
-module.exports = { connect, buffer, set };
+const close = () => {
+	client.quit();
+};
+
+module.exports = { connect, buffer, set, close };

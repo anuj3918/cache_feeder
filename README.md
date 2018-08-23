@@ -17,6 +17,9 @@ At the start of a project or even in an ongoing project, sometimes it is require
 npm install --save cache_feeder
 ```
 
+## Github repository
+[a link](https://github.com/anuj3918/cache_feeder.git)
+
 ## Code example
 ```
 //  Requires 
@@ -24,8 +27,8 @@ const feeder = require('cache_feeder');
 
 //  Setup options for library and cache
 const options = {
-	type: 'redis',
 	cacheConfig: {
+		type: 'redis',
 		host: '127.0.0.1',
 		port: 6379
 	},
@@ -33,22 +36,27 @@ const options = {
 		commandsPerBatch: 40,
 		logTime: true,
 		logProcesses: true,
-		path: './csv/sample.csv',
 		keyColName: 'key',
 		valueColName: 'value'
 	}
 };
 
-//  Starts setting key value pairs to cache
-feeder(options)
+//	Requires cache_feeder and initialise it, cf here is a Promise object
+const cf = require('./index')(options);
+
+//  Starts setting key value pairs to cache, can use async-await here as well
+cf('./csv/MOCK_DATA.csv')
+	.then(result => {
+		console.log(result);
+	});
 ```
 
 ## Details of 'options' to be passed
 Below are the default values of options
 ```
 const options = {
-	type: 'redis', // Type of cache
 	cacheConfig: {
+		type: 'redis', // Type of cache
 		host: '127.0.0.1',  //  Host of cache
 		port: 6379  //  Port of cache
 	},
@@ -56,7 +64,6 @@ const options = {
 		commandsPerBatch: 40, // Number of set commands to send in one batch request
 		logTime: true,  //  Logs the total time taken on terminal
 		logProcesses: true, //  Logs the tasks performed on terminal
-		path: './csv/sample.csv', //  Relative path to a csv file
 		keyColName: 'key',  //  Name of column header to be set as key name
 		valueColName: 'value' //  Name of column header to be set as value name
 	}
